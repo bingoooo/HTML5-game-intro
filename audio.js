@@ -1,10 +1,26 @@
 var playlist = [
+	"10 Cliffs of Dover.m4a",
+	"10 Lottara Lottara.m4a",
 	"Far from love.mp3",
 	"Globalization.mp3",
 	"Journey.mp3",
 	"Leavin.mp3",
 	"Stuck at home.mp3",
-	"Static space.mp3"
+	"Static space.mp3",
+	"Alexand.mp3",
+	"BoyceAvenue.mp3",
+	"Can You Dig It  Thee Emergency.MP3",
+	"Colourslide.mp3",
+	"David Newbould  Goldmines.MP3",
+	"InvisibleMan.mp3",
+	"Lansdowne.mp3",
+	"Leavin.mp3",
+	"LondonEgg.mp3",
+	"MariavilleCattleCompanyBand.mp3",
+	"Tantric Cycle.mp3",
+	"TheRefinedGentlemen&Gezele.mp3",
+	"Thee Emergency  Total Energy.MP3",
+	"Trailer77.mp3",
 ];
 var current = 0;
 var audio;
@@ -13,6 +29,7 @@ var title;
 window.onload = function(){
 	audio = document.getElementById('audio');
 	title = document.getElementById('title');
+	title.innerHTML = playlist[0];
 	audio.onload = function(){
 		console.log('Loading File');
 	}
@@ -44,4 +61,5 @@ var Next = function(){
 	console.log('Next Track');
 	audio.src = "audio/" + playlist[current];
 	audio.play();
+	document.getElementById('title').innerHTML = playlist[current];
 }
