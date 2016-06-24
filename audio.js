@@ -2,13 +2,6 @@ var defaultPlaylist = [
 	"02 恋愛♥ライダー.m4a",
 	"10 Cliffs of Dover.m4a",
 	"10 ロッタラ ロッタラ.m4a",
-	"Far from love.mp3",
-	"Globalization.mp3",
-	"Journey.mp3",
-	"Leavin.mp3",
-	"Stuck at home.mp3",
-	"Static space.mp3",
-	"Alexand.mp3",
 	"BoyceAvenue.mp3",
 	"Can You Dig It  Thee Emergency.MP3",
 	"Colourslide.mp3",
@@ -51,10 +44,15 @@ window.onload = function(){
 		    console.log('Ended ?', audio.ended)
 		    if (e.keyCode === 83) {
 				audio.pause();
-			} else if (e.keyCode === 80) {
+			}
+			if (e.keyCode === 80) {
 				audio.play();
-			} else if (e.keyCode === 78) {
+			}
+			if (e.keyCode === 78) {
 				Next(audio);
+			}
+			if (e.keyCode === 66) {
+				Back(audio);
 			}
 		}
 		var autoplay = setInterval(function(){
@@ -68,9 +66,19 @@ window.onload = function(){
 
 var Next = function(){
 	if (current < playlist.length -1) {
-		current += 1;
+		current++;
 	} else current = 0;
 	console.log('Next Track');
+	audio.src = "audio/" + playlist[current];
+	audio.play();
+	document.getElementById('title').innerHTML = playlist[current];
+}
+
+var Back = function(){
+	if (current > 0) {
+		current--;
+	} else current = playlist.length -1;
+	console.log('Previous Track');
 	audio.src = "audio/" + playlist[current];
 	audio.play();
 	document.getElementById('title').innerHTML = playlist[current];
