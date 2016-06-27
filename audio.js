@@ -71,7 +71,7 @@ var Next = function(){
 	console.log('Next Track');
 	audio.src = "audio/" + playlist[current];
 	audio.play();
-	document.getElementById('title').innerHTML = playlist[current];
+	Display();
 }
 
 var Back = function(){
@@ -81,5 +81,10 @@ var Back = function(){
 	console.log('Previous Track');
 	audio.src = "audio/" + playlist[current];
 	audio.play();
+	Display();
+}
+
+var Display = function(){
 	document.getElementById('title').innerHTML = playlist[current];
+	document.getElementById('onglet').innerHTML = playlist[current] + "HTML5 Game in Dev";	
 }
