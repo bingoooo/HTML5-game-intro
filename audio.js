@@ -24,12 +24,29 @@ if(self.fetch){
 			console.log(playlist);
 		})
 	});
-} else playlist = defaultPlaylist;
+} else {
+	var request = new XMLHttpRequest;
+	request.open('GET', './playlist.json', false);
+	request.send(null);
+	if (request.status == 200) {
+		dump(request);
+	}
+}
+// playlist = defaultPlaylist;
 var current = 0;
 var audio;
 var title;
+var notify;
 
 window.onload = function(){
+	notify = Notification.permission;
+	console.log('Notifications :', notify);
+	if(notify !== "granted"){
+		Notification.requestPermission().then(function(permission){
+			notify = permission;
+			console.log('Notify ?', notify);
+		});
+	}
 	setTimeout(function(){
 		audio = document.getElementById('audio');
 		title = document.getElementById('title');
@@ -86,5 +103,23 @@ var Back = function(){
 
 var Display = function(){
 	document.getElementById('title').innerHTML = playlist[current];
-	document.getElementById('onglet').innerHTML = playlist[current] + "HTML5 Game in Dev";	
+	document.getElementById('onglet').innerHTML = playlist[current] + "HTML5 Game in Dev";
+	Notify(playlist[current]);
+}
+
+var Notify = function (title) {
+	var permission = Notification.permission;
+	if(!Notification){
+		console.log('Desktop notifications not available in this browser, try chromium');
+		return;
+	}
+	if(permission === "granted") {
+		var notification = new Notification('Bingo Player', {
+			icon: './favicon.png',
+			body: title
+		});
+	}
+	setTimeout(function(){
+		notification.close();
+	}, 10000);
 }
