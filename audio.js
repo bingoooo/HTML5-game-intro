@@ -64,6 +64,7 @@ window.onload = function(){
 			}
 			if (e.keyCode === 80) {
 				audio.play();
+				Display();
 			}
 			if (e.keyCode === 78) {
 				Next(audio);
