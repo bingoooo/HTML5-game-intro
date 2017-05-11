@@ -3,7 +3,7 @@
 <head>
 	<title id="onglet">HTML5 Game in Dev</title>
 	<meta charset="UTF-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="shortcut icon" type="image/png" href="http://game.dev/favicon.png">
 </head>
