@@ -35,7 +35,7 @@ if(self.fetch){
 // playlist = defaultPlaylist;
 var current = 0;
 var audio;
-var title;
+var title = document.getElementById('title');
 var notify;
 
 window.onload = function(){
